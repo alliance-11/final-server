@@ -1,0 +1,6 @@
+PATCH http://localhost:5000/teachers/62712c395149e5e0b4212945 HTTP/1.1
+content-type: application/json
+
+{
+    "city": "Seoul"
+}

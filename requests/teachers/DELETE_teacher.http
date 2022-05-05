@@ -1,0 +1,2 @@
+# single teachers
+DELETE http://localhost:5000/teachers/62712c395149e5e0b4212946 HTTP/1.1

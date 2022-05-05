@@ -1,0 +1,2 @@
+# ALL teachers
+GET http://localhost:5000/teachers HTTP/1.1
