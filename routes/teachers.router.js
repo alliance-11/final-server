@@ -4,23 +4,9 @@ const Teacher = require("../models/teachersModel")
 
 const teachersRouter = express.Router();
 
-
-// ROUTES
-// Routes will FORWARD all data requests to DATAABASE
-
-// const addTeacher = async () => {
-//   const teacherCreated = await Teacher.create({
-//     name: "Luis",
-//     city: "Madrid",
-//   });
-//   console.log(teacherCreated);
-// };
-// addTeacher();
-
-
 // Route: /teachers
 // GET All teachers
-teachersRouter.get("/", async (reg, res) => {
+teachersRouter.get("/", async (req, res) => {
 
   // await => waits for the data to get returned AND unpacks the received promise BOX
   const teachers = await Teacher.find()
@@ -28,33 +14,21 @@ teachersRouter.get("/", async (reg, res) => {
   // we just get a box BACK => EITHER there is the DATA inside OR some error!
   // const promData = Teacher.find()
 
-  // promData
-  // .then( (data) => {
-  //   console.log(data)
-  // })
-  // .catch( (err) => {
-  //   console.log( err )
-  // })
-
   res.json(teachers);
 });
 
 // Route: /teachers/1
 // GET single teacher
-teachersRouter.get("/:id", async (reg, res) => {
-  const teacherId = reg.params.id;
-
+teachersRouter.get("/:id", async (req, res) => {
+  const teacherId = req.params.id;
   console.log( { teacherId })
-
   // fetch SINGLE teacher by ID => WAIT for the result and UNPACK it from the Box
   const teacher = await Teacher.findById( teacherId )
-
   res.json( teacher );
 });
 
 // Route: POST /teachers
-// will listen for incoming POST requests
-// data will be in req.body
+// will listen for incoming POST requests, data will be in req.body
 teachersRouter.post("/", async (req, res) => {
 
   console.log("POST request received: ", req.body)
