@@ -9,11 +9,6 @@ const teachersRouter = require("./routes/teachers.router");
 const studentsRouter = require("./routes/students.router");
 
 
-// import mongoose from "mongoose";
-// import dotenv from "dotenv";
-// dotenv.config()
-// mongoose.connect(process.env.MONGOURI);
-
 // console.log(students);
 
 const app = express();
@@ -44,7 +39,6 @@ app.use( (req, res) => {
     error: "Route not found!"
   })
 })
-
 
 // STARTUP API and listen for incoming requests on PORT 5000
 // const PORT = process.env.PORT || 5000;

@@ -1,0 +1,30 @@
+@url = http://localhost:5000
+
+### All teachers
+GET {{url}}/teachers
+Content-Type: application/json
+
+### single teachers
+GET {{url}}/teachers/6273d52efe9a75d14804800d
+Content-Type: application/json
+
+### Create
+POST {{url}}/teachers
+Content-Type: application/json
+
+{
+    "name": "Rene",
+    "city": "Hamburg",
+}
+
+### Edit
+PATCH {{url}}/teachers/6273d52efe9a75d14804800e
+content-type: application/json
+
+{
+    "city": "Hamburg"
+}
+
+### Delete
+DELETE {{url}}/teachers/6273d52efe9a75d14804800b
+content-type: application/json
