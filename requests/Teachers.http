@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
     "name": "Rene",
-    "city": "Hamburg",
+    "city": "Hamburg"
 }
 
 ### Edit
