@@ -13,8 +13,16 @@ POST {{url}}/teachers
 Content-Type: application/json
 
 {
-    "name": "Marlene",
+    "name": "Heba",
     "city": "Hamburg"
+}
+
+### Edit
+PATCH {{url}}/teachers/62762c4eb151d0d2f86220eb
+content-type: application/json
+
+{
+    "name": "Rob"
 }
 
 ### Edit
@@ -23,13 +31,6 @@ content-type: application/json
 
 {
     "city": "Bremen"
-}
-### Edit
-PATCH {{url}}/teachers/62762c2fb151d0d2f86220dd
-content-type: application/json
-
-{
-    "name": "Liana"
 }
 
 ### Delete

@@ -1,23 +1,51 @@
 const express = require("express");
 const students = require("../data/students.json");
+const StudentModel = require("../models/studentsModel");
 
 const studentsRouter = express.Router();
 
 //GET route => kann man direct im BROWSER aufrufen
-studentsRouter.get("/", (reg, res) => {
+studentsRouter.get("/", async (req, res) => {
+  const students = await StudentModel.find();
   // respond to BROWSER with ALL students in array
   res.json(students);
 });
 
-//Will handle these requests: /students/id
-studentsRouter.get("/:id", (reg, res) => {
-  const studentId = reg.params.id;
-  // respond to BROWSER with ALL students in array
-  // res.json(students);
-  const studentFound = students.find((student) => student.id === studentId);
-//   res.send(req.params.id);
-  res.send(studentFound);
+// GET  /teachers/id -> single student
+studentsRouter.get("/:id", async (req, res) => {
+  const studentId = req.params.id;
+  // const studentFound = students.find((student) => student.id === studentId);
+  //   res.send(req.params.id);
+  console.log({ studentId });
+  const student = await StudentModel.findById(studentId);
+  res.json(student);
 });
 
-// export default = studentsRouter
+// POST /students
+studentsRouter.post("/", async (req, res) => {
+  const studentNew = await StudentModel.create(req.body);
+  res.json(studentNew);
+});
+
+// PATCH /students/id
+studentsRouter.patch("/:id", async (req, res) => {
+  const studentId = req.params.id;
+  const dataUpdate = req.body;
+  const studentUpdated = await StudentModel.findByIdAndUpdate(
+    studentId,
+    dataUpdate,
+    { new: true }
+  );
+  res.json(studentUpdated);
+});
+
+// DELETE /students/id
+studentsRouter.delete("/:id", async (req, res) => {
+  const studentId = req.params.id;
+
+  const studentDeleted = await StudentModel.findByIdAndDelete(studentId);
+  
+  res.json(studentDeleted);
+});
+
 module.exports = studentsRouter;

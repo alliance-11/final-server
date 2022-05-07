@@ -1,7 +1,7 @@
 const express = require("express");
 // const cors = require("cors")
 const connection = require("./connect-db")
-const students = require("./data/students.json");
+// const students = require("./data/students.json");
 // const teachers = require("./data/teachers.json");
 const users = require("./data/users.json");
 const usersRouter = require("./routes/users.router");

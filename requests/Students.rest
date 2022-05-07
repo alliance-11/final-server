@@ -1,0 +1,38 @@
+@url= http://localhost:5000
+
+### all students
+GET {{url}}/students
+Content-Type: application/json
+
+### single student
+GET {{url}}/students/6273d56cfe9a75d148048014
+Content-Type: application/json
+
+### create student
+POST {{url}}/students
+Content-Type: application/json
+
+{
+    "name": "Rene",
+    "specialization": "Backend"
+}
+
+### Edit
+PATCH {{url}}/students/6276ce873dc44bb71d388d6d
+Content-Type: application/json
+
+{
+    "name": "Bob"
+}
+
+### Edit
+PATCH {{url}}/students/6276ce873dc44bb71d388d6d
+Content-Type: application/json
+
+{
+    "specialization": "Full Stack"
+}
+
+### Delete
+DELETE {{url}}/students/6276ca560f7893b8b53d3d06
+Content-Type: application/json
