@@ -7,18 +7,15 @@ const teachersRouter = express.Router();
 // Route: /teachers
 // GET All teachers
 teachersRouter.get("/", async (req, res) => {
-
   // await => waits for the data to get returned AND unpacks the received promise BOX
   const teachers = await Teacher.find()
-
   // we just get a box BACK => EITHER there is the DATA inside OR some error!
   // const promData = Teacher.find()
 
   res.json(teachers);
 });
 
-// Route: /teachers/1
-// GET single teacher
+// GET  /teachers/id -> single teacher
 teachersRouter.get("/:id", async (req, res) => {
   const teacherId = req.params.id;
   console.log( { teacherId })
@@ -27,17 +24,16 @@ teachersRouter.get("/:id", async (req, res) => {
   res.json( teacher );
 });
 
-// Route: POST /teachers
+// POST /teachers
 // will listen for incoming POST requests, data will be in req.body
 teachersRouter.post("/", async (req, res) => {
-
   console.log("POST request received: ", req.body)
-
   // forward data in body to database
   const teacherNew = await Teacher.create( req.body )
   res.json( teacherNew )
 })
 
+// PATCH /teachers/id
 teachersRouter.patch("/:id", async (req, res) => {
   const teacherId = req.params.id // ID of teacher
   const dataUpate = req.body // data to UPDATE on teacher
@@ -47,6 +43,7 @@ teachersRouter.patch("/:id", async (req, res) => {
   res.json( teacherUpdated )
 })
 
+// DELETE /teachers/id
 teachersRouter.delete("/:id", async (req, res) => {
   const teacherId = req.params.id
 
