@@ -24,6 +24,13 @@ content-type: application/json
 {
     "city": "Bremen"
 }
+### Edit
+PATCH {{url}}/teachers/62762c2fb151d0d2f86220dd
+content-type: application/json
+
+{
+    "name": "Liana"
+}
 
 ### Delete
 DELETE {{url}}/teachers/62762c1cb151d0d2f86220d6
