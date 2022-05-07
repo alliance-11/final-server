@@ -1,24 +1,24 @@
 @url = http://localhost:5000
 
 ### All teachers
-GET {{url}}/teachers HTTP/1.1
+GET {{url}}/teachers
 Content-Type: application/json
 
 ### single teachers
-GET {{url}}/teachers/6273d52efe9a75d14804800f HTTP/1.1
+GET {{url}}/teachers/6273d52efe9a75d14804800f
 Content-Type: application/json
 
 ### Create
-POST {{url}}/teachers HTTP/1.1
+POST {{url}}/teachers
 Content-Type: application/json
 
 {
-    "name": "Rene",
+    "name": "Marlene",
     "city": "Hamburg"
 }
 
 ### Edit
-PATCH {{url}}/teachers/6273d52efe9a75d14804800f HTTP/1.1
+PATCH {{url}}/teachers/6273d52efe9a75d14804800f
 content-type: application/json
 
 {
@@ -26,5 +26,5 @@ content-type: application/json
 }
 
 ### Delete
-DELETE {{url}}/teachers/6273d52efe9a75d14804800f HTTP/1.1
+DELETE {{url}}/teachers/62762c1cb151d0d2f86220d6
 content-type: application/json
