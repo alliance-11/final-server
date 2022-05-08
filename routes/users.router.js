@@ -1,23 +1,38 @@
 const express = require("express");
 const users = require("../data/users.json");
+const UserModel= require("../models/users.Model")
 
 const usersRouter = express.Router();
 
-//GET route => kann man direct im BROWSER aufrufen
-usersRouter.get("/", (reg, res) => {
-  // respond to BROWSER with ALL users in array
+//GET all users
+usersRouter.get("/", async(req, res) => {
+  const users = await UserModel.find()
   res.json(users);
 });
 
-//Will handle these requests: /users/id
-usersRouter.get("/:id", (reg, res) => {
-  const studentId = reg.params.id;
-  // respond to BROWSER with ALL users in array
-  // res.json(users);
-  const studentFound = users.find((student) => student.id === studentId);
-//   res.send(req.params.id);
-  res.send(studentFound);
+// GET single
+usersRouter.get("/:id", async (req, res) => {
+  const userId = req.params.id;
+const user = await UserModel.findById(userId);
+  res.json(user);
 });
 
-// export default = usersRouter
+// CREATE
+usersRouter.post("/", async (req, res)=>{
+  const userNew= await UserModel.create(req.body)
+  res.json(userNew);
+})
+
+// EDIT
+usersRouter.patch("/:id", async (req, res)=>{
+const userUpdated= await UserModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
+res.json(userUpdated);
+})
+
+// DELETE
+usersRouter.delete("/:id", async (req, res)=>{
+  const userDelete= await UserModel.findByIdAndDelete(req.params.id)
+  res.json(userDelete);
+})
+
 module.exports = usersRouter;

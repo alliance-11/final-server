@@ -42,9 +42,7 @@ studentsRouter.patch("/:id", async (req, res) => {
 // DELETE /students/id
 studentsRouter.delete("/:id", async (req, res) => {
   const studentId = req.params.id;
-
   const studentDeleted = await StudentModel.findByIdAndDelete(studentId);
-  
   res.json(studentDeleted);
 });
 

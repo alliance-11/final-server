@@ -1,0 +1,55 @@
+@url = http://localhost:5000
+
+### get all
+GET {{url}}/users
+Content-Type: application/json
+
+### get single
+GET {{url}}/users/6273d59bfe9a75d14804801a
+Content-Type: application/json
+
+### create
+POST {{url}}/users
+Content-Type: application/json
+
+{
+    "name": "Julian",
+    "profession": "PR Consultant",
+    "hobby": "reading",
+    "email": "julian@gmail.com",
+    "city": "San Francisco"
+}
+
+### delete
+DELETE {{url}}/users/62779187fbe78b275ef54fd3
+Content-Type: application/json
+
+### edit
+PATCH {{url}}/users/62778dceabaaaec773829004
+Content-Type: application/json
+
+{
+    "name": "Amar",
+    "email": "amar@gmail.com"
+}
+
+### edit
+PATCH {{url}}/users/62778dceabaaaec773829004
+Content-Type: application/json
+
+{
+    "name": "Amar",
+    "email": "amar@gmail.com",
+    "profession": "Trainer"
+}
+
+### edit
+PATCH {{url}}/users/62778dcfabaaaec773829006
+Content-Type: application/json
+
+{
+    "name": "Ed",
+    "email": "ed@gmail.com",
+    "profession": "Trainer",
+    "city": "New York"
+}
