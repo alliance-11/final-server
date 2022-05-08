@@ -4,7 +4,7 @@ const UserModel= require("../models/users.Model")
 
 const usersRouter = express.Router();
 
-//GET all users
+// GET all users
 usersRouter.get("/", async(req, res) => {
   const users = await UserModel.find()
   res.json(users);
@@ -23,16 +23,17 @@ usersRouter.post("/", async (req, res)=>{
   res.json(userNew);
 })
 
+// DELETE
+usersRouter.delete("/:id", async (req, res)=>{
+  const userDelete= await UserModel.findByIdAndDelete(req.params.id)
+  res.json(userDelete);
+})
+
 // EDIT
 usersRouter.patch("/:id", async (req, res)=>{
 const userUpdated= await UserModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
 res.json(userUpdated);
 })
 
-// DELETE
-usersRouter.delete("/:id", async (req, res)=>{
-  const userDelete= await UserModel.findByIdAndDelete(req.params.id)
-  res.json(userDelete);
-})
 
 module.exports = usersRouter;
