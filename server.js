@@ -1,5 +1,8 @@
+const dotenv = require("dotenv")
+dotenv.config() // parse .env file and store it in object process.env
+
 const express = require("express");
-// const cors = require("cors")
+const cors = require("cors")
 const connection = require("./connect-db");
 // const students = require("./data/students.json");
 // const teachers = require("./data/teachers.json");
@@ -8,14 +11,14 @@ const usersRouter = require("./routes/users.router");
 const teachersRouter = require("./routes/teachers.router");
 const studentsRouter = require("./routes/students.router");
 
-// console.log(students);
 
 const app = express();
 
 // Parse all incoming JSON bodies into req.body variable
 // register JSON parser middleare
 app.use(express.json());
-// app.use( cors() ) // allow accessing our API from the BROWSER!
+
+app.use(cors({ origin: process.env.FRONTEND_ORIGIN })) // allow accessing our API from the ANY other domain!
 
 //HOME ROUTE
 app.get("/", (req, res) => {
