@@ -1,6 +1,5 @@
 const dotenv = require("dotenv")
 dotenv.config() // parse .env file and store it in object process.env
-
 const express = require("express");
 const cors = require("cors")
 const connection = require("./connect-db");
@@ -19,6 +18,14 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({ origin: process.env.FRONTEND_ORIGIN })) // allow accessing our API from the ANY other domain!
+// app.use(cors({ origin: process.env.FRONTEND_ORIGIN || "http://localhost:3000" })) // allow accessing our API from the ANY other domain!
+// app.use(
+//   cors({
+//     origin: process.env.ORIGIN_URL || "http://localhost:3000",
+//     credentials: true, // accept incoming cookies
+//   })
+// );
+
 
 //HOME ROUTE
 app.get("/", (req, res) => {
