@@ -9,7 +9,7 @@ const connection = require("./connect-db");
 const usersRouter = require("./routes/users.router");
 const teachersRouter = require("./routes/teachers.router");
 const studentsRouter = require("./routes/students.router");
-
+const todosRouter= require("./routes/todos.router")
 
 const app = express();
 
@@ -33,7 +33,8 @@ app.get("/", (req, res) => {
   res.send(`<h2>Final</h2>
   <a href="/users">Users</a> |
   <a href="/teachers">Teachers</a> |
-  <a href="/students">Students</a>
+  <a href="/students">Students</a> |
+  <a href="/todos">Todos</a> 
     `);
 });
 
@@ -41,6 +42,7 @@ app.get("/", (req, res) => {
 app.use("/users", usersRouter);
 app.use("/teachers", teachersRouter);
 app.use("/students", studentsRouter);
+app.use("/todos", todosRouter);
 
 // catch all route => usually used for 404 (=> not found)
 app.use((req, res) => {

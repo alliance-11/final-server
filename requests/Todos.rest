@@ -1,0 +1,30 @@
+@url = http://localhost:5000
+
+### all
+GET {{url}}/todos
+Content-Type: application/json
+
+### single
+GET {{url}}/todos/627ce354a363a6423c3e7796
+Content-Type: application/json
+
+### create
+POST {{url}}/todos
+Content-Type: application/json
+
+{
+    "todo": "drinc coffee",
+    "description": "a couple of coffee"
+}
+
+### edit
+PATCH {{url}}/todos/627ce354a363a6423c3e7796
+Content-Type: application/json
+
+{
+    "todo": "drinc tea"
+}
+
+### delete
+Delete {{url}}/todos/627ce354a363a6423c3e7796
+Content-Type: application/json
