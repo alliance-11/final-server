@@ -1,6 +1,6 @@
 const express = require("express");
 const users = require("../data/users.json");
-const UserModel= require("../models/users.Model")
+const UserModel= require("../models/usersModel")
 
 const usersRouter = express.Router();
 

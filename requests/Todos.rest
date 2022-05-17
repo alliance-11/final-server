@@ -13,16 +13,16 @@ POST {{url}}/todos
 Content-Type: application/json
 
 {
-    "todo": "drinc coffee",
+    "title": "drinc coffee",
     "description": "a couple of coffee"
 }
 
 ### edit
-PATCH {{url}}/todos/627ce354a363a6423c3e7796
+PATCH {{url}}/todos/6283563dbce7f4f38d8de7f7
 Content-Type: application/json
 
 {
-    "todo": "drinc tea"
+    "title": "drinc tea"
 }
 
 ### delete

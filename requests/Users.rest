@@ -13,11 +13,11 @@ POST {{url}}/users
 Content-Type: application/json
 
 {
-    "name": "Julian",
+    "name": "Peter",
     "profession": "PR Consultant",
     "hobby": "reading",
     "email": "julian@gmail.com",
-    "city": "San Francisco"
+    "city": "Bremen"
 }
 
 ### delete

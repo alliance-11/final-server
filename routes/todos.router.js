@@ -1,4 +1,5 @@
 const express = require("express");
+const todos=require("../data/todos.json")
 const Todo = require("../models/todosModel");
 
 const todosRouter = express.Router();
