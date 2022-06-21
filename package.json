@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elis-11/final-server.git"
+    "url": "git+https://github.com/alliance-11/final-server.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/elis-11/final-server/issues"
+    "url": "https://github.com/alliance-11/final-server/issues"
   },
-  "homepage": "https://github.com/elis-11/final-server#readme",
+  "homepage": "https://github.com/alliance-11/final-server#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
