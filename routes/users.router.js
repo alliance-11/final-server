@@ -1,8 +1,8 @@
-const express = require("express");
-const users = require("../data/users.json");
-const UserModel= require("../models/usersModel")
+import express from "express"
+// import users from "../data/users.json"
+import {UserModel} from "../models/usersModel.js"
 
-const usersRouter = express.Router();
+export const usersRouter = express.Router();
 
 // GET all users
 usersRouter.get("/", async(req, res) => {
@@ -34,6 +34,3 @@ usersRouter.patch("/:id", async (req, res)=>{
 const userUpdated= await UserModel.findByIdAndUpdate(req.params.id, req.body, {new: true})
 res.json(userUpdated);
 })
-
-
-module.exports = usersRouter;

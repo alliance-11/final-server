@@ -1,18 +1,21 @@
-const dotenv = require("dotenv")
-const express = require("express");
-const cors = require("cors")
-const connection = require("./connect-db");
-const usersRouter = require("./routes/users.router");
-const teachersRouter = require("./routes/teachers.router");
-const studentsRouter = require("./routes/students.router");
-const todosRouter= require("./routes/todos.router")
-dotenv.config() // parse .env file and store it in object process.env
+import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+// import {connection} from "./connect-db";
+import {usersRouter} from "./routes/users.router.js"
+import {teachersRouter} from "./routes/teachers.router.js";
+import {studentsRouter} from "./routes/students.router.js";
+import {todosRouter} from "./routes/todos.router.js";
+dotenv.config(); // parse .env file and store it in object process.env
 
 const app = express();
 
 app.use(express.json());
+mongoose.connect(process.env.MONGO_URI);
 
-app.use(cors({ origin: process.env.FRONTEND_ORIGIN })) // allow accessing our API from the ANY other domain!
+
+app.use(cors({ origin: process.env.FRONTEND_ORIGIN })); // allow accessing our API from the ANY other domain!
 // app.use(cors({ origin: process.env.FRONTEND_ORIGIN || "http://localhost:3000" })) // allow accessing our API from the ANY other domain!
 // app.use(
 //   cors({
@@ -20,7 +23,6 @@ app.use(cors({ origin: process.env.FRONTEND_ORIGIN })) // allow accessing our AP
 //     credentials: true, // accept incoming cookies
 //   })
 // );
-
 
 //HOME ROUTE
 app.get("/", (req, res) => {
@@ -46,7 +48,7 @@ app.use((req, res) => {
   });
 });
 
-const PORT = 5000 || process.env.PORT
+const PORT = 5000 || process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Listen on http://localhost:` + PORT);
 });

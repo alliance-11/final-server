@@ -1,8 +1,8 @@
-const express = require("express");
-const students = require("../data/students.json");
-const StudentModel = require("../models/studentsModel");
+import express from "express";
+// import students from "../data/students.json";
+import {StudentModel} from "../models/studentsModel.js";
 
-const studentsRouter = express.Router();
+export const studentsRouter = express.Router();
 
 //GET route => kann man direct im BROWSER aufrufen
 studentsRouter.get("/", async (req, res) => {
@@ -45,5 +45,3 @@ studentsRouter.delete("/:id", async (req, res) => {
   const studentDeleted = await StudentModel.findByIdAndDelete(studentId);
   res.json(studentDeleted);
 });
-
-module.exports = studentsRouter;

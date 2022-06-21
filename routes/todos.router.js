@@ -1,8 +1,8 @@
-const express = require("express");
-const todos=require("../data/todos.json")
-const Todo = require("../models/todosModel");
+import express from "express";
+// import todos from "../data/todos.json";
+import {Todo} from "../models/todosModel.js";
 
-const todosRouter = express.Router();
+export const todosRouter = express.Router();
 
 todosRouter.get("/", async (req, res) => {
   const todos = await Todo.find();
@@ -36,5 +36,3 @@ todosRouter.delete("/:id", async (req, res) => {
   const todoDeleted = await Todo.findByIdAndDelete(req.params.id);
   res.json(todoDeleted);
 });
-
-module.exports = todosRouter;

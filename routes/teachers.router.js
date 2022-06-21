@@ -1,8 +1,8 @@
-const express = require("express");
-const teachers = require("../data/teachers.json");
-const Teacher = require("../models/teachersModel");
+import express from "express";
+// import teachers from "../data/teachers.json";
+import {Teacher} from "../models/teachersModel.js";
 
-const teachersRouter = express.Router();
+export const teachersRouter = express.Router();
 
 // GET All teachers
 teachersRouter.get("/", async (req, res) => {
@@ -52,5 +52,3 @@ teachersRouter.delete("/:id", async (req, res) => {
 
   res.json(teacherDeleted);
 });
-
-module.exports = teachersRouter;

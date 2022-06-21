@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
@@ -7,6 +7,4 @@ const teacherSchema = new Schema({
   city: { type: String, required: true },
 });
 
-const Teacher = model("Teacher", teacherSchema);
-
-module.exports = Teacher;
+export const Teacher = model("Teacher", teacherSchema);
