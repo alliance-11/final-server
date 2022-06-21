@@ -1,2 +1,0 @@
-# single teachers
-GET http://localhost:5000/teachers/6273d52efe9a75d14804800d HTTP/1.1

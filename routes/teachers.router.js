@@ -4,7 +4,6 @@ const Teacher = require("../models/teachersModel");
 
 const teachersRouter = express.Router();
 
-// Route: /teachers
 // GET All teachers
 teachersRouter.get("/", async (req, res) => {
   // await => waits for the data to get returned AND unpacks the received promise BOX

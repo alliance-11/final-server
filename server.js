@@ -1,20 +1,15 @@
 const dotenv = require("dotenv")
-dotenv.config() // parse .env file and store it in object process.env
 const express = require("express");
 const cors = require("cors")
 const connection = require("./connect-db");
-// const students = require("./data/students.json");
-// const teachers = require("./data/teachers.json");
-// const users = require("./data/users.json");
 const usersRouter = require("./routes/users.router");
 const teachersRouter = require("./routes/teachers.router");
 const studentsRouter = require("./routes/students.router");
 const todosRouter= require("./routes/todos.router")
+dotenv.config() // parse .env file and store it in object process.env
 
 const app = express();
 
-// Parse all incoming JSON bodies into req.body variable
-// register JSON parser middleare
 app.use(express.json());
 
 app.use(cors({ origin: process.env.FRONTEND_ORIGIN })) // allow accessing our API from the ANY other domain!
@@ -51,10 +46,7 @@ app.use((req, res) => {
   });
 });
 
-// STARTUP API and listen for incoming requests on PORT 5000
-// const PORT = process.env.PORT || 5000;
-const PORT = 5000;
-
+const PORT = 5000 || process.env.PORT
 app.listen(PORT, () => {
-  console.log(`Listen on http://localhost:${PORT}`);
+  console.log(`Listen on http://localhost:` + PORT);
 });
