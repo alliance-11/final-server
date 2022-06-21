@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-// import {connection} from "./connect-db";
+// import {connection} from "./connect-db"
 import {usersRouter} from "./routes/users.router.js"
 import {teachersRouter} from "./routes/teachers.router.js";
 import {studentsRouter} from "./routes/students.router.js";
