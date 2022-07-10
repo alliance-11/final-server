@@ -44,12 +44,12 @@ Content-Type: application/json
 }
 
 ### edit
-PATCH {{url}}/users/62778dcfabaaaec773829006
+PATCH {{url}}/users/62cad030ecbfbc0b94eba79a
 Content-Type: application/json
 
 {
-    "name": "Ed",
-    "email": "ed@gmail.com",
+    "name": "Peter",
+    "email": "peter@gmail.com",
     "profession": "Trainer",
     "city": "New York"
 }
